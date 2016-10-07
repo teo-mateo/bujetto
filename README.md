@@ -1,0 +1,2 @@
+# bujetto
+Personal budgeting app

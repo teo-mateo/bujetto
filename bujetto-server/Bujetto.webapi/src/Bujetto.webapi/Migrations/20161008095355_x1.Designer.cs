@@ -8,9 +8,10 @@ using Bujetto.webapi.BujettoDB;
 namespace Bujetto.webapi.Migrations
 {
     [DbContext(typeof(BujettoDbContext))]
-    partial class BujettoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161008095355_x1")]
+    partial class x1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1");

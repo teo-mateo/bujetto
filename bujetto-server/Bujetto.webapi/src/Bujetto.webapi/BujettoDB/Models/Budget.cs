@@ -15,6 +15,7 @@ namespace Bujetto.webapi.BujettoDB.Models
         public DateTime creationdate { get; set; }
         public DateTime? expirationdate { get; set; }
         public decimal value { get; set; }
+        public int userid { get; set; }
         public virtual User user { get; set; }
     }
 

@@ -202,11 +202,16 @@ C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Program.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Startup.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\BujettoDB\BujettoDbContext.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\BujettoDB\Models\Budget.cs
+C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Controllers\BudgetsController.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Controllers\BujettoController.cs
+C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Controllers\ExpenseCategoriesController.cs
+C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Controllers\ExpensesController.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Controllers\UsersController.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Controllers\ValuesController.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Migrations\20161007222456_initial.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Migrations\20161007222456_initial.Designer.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Migrations\20161007223115_t1.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Migrations\20161007223115_t1.Designer.cs
+C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Migrations\20161008095355_x1.cs
+C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Migrations\20161008095355_x1.Designer.cs
 C:\git\bujetto\bujetto-server\Bujetto.webapi\src\Bujetto.webapi\Migrations\BujettoDbContextModelSnapshot.cs

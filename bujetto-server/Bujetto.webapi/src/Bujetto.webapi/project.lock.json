@@ -3972,6 +3972,9 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "WebApiRouteDebugger/1.0.0": {
+        "type": "package"
       }
     }
   },
@@ -10248,6 +10251,38 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "WebApiRouteDebugger/1.0.0": {
+      "sha512": "e6e7FlAiCr90txa2uHkBKWU6a4NNnssMQ8/e1uNqQVjrxcgaWf/FoSXGOBHVMfEh6BNXpVUznjV3YFtGWEB//Q==",
+      "type": "package",
+      "path": "WebApiRouteDebugger/1.0.0",
+      "files": [
+        "WebApiRouteDebugger.1.0.0.nupkg.sha512",
+        "WebApiRouteDebugger.nuspec",
+        "content/Areas/RouteDebugger/Components/ActionSelectSimulator.cs.pp",
+        "content/Areas/RouteDebugger/Components/DictionaryExtensions.cs.pp",
+        "content/Areas/RouteDebugger/Components/HttpParameterBindingExtensions.cs.pp",
+        "content/Areas/RouteDebugger/Components/TypeHelper.cs.pp",
+        "content/Areas/RouteDebugger/Content/rdstyle.css",
+        "content/Areas/RouteDebugger/Controllers/RouteDebuggerController.cs.pp",
+        "content/Areas/RouteDebugger/InspectActionInvoker.cs.pp",
+        "content/Areas/RouteDebugger/InspectActionSelector.cs.pp",
+        "content/Areas/RouteDebugger/InspectControllerSelector.cs.pp",
+        "content/Areas/RouteDebugger/InspectHandler.cs.pp",
+        "content/Areas/RouteDebugger/Models/ActionSelectionInfo.cs.pp",
+        "content/Areas/RouteDebugger/Models/ActionSelectionLog.cs.pp",
+        "content/Areas/RouteDebugger/Models/ControllerSelectionInfo.cs.pp",
+        "content/Areas/RouteDebugger/Models/HttpParameterDescriptionInfo.cs.pp",
+        "content/Areas/RouteDebugger/Models/InspectData.cs.pp",
+        "content/Areas/RouteDebugger/Models/RouteDataInfo.cs.pp",
+        "content/Areas/RouteDebugger/Models/RouteInfo.cs.pp",
+        "content/Areas/RouteDebugger/RequestHelper.cs.pp",
+        "content/Areas/RouteDebugger/RouteDebuggerAreaRegistration.cs.pp",
+        "content/Areas/RouteDebugger/RouteDebuggerConfig.cs.pp",
+        "content/Areas/RouteDebugger/Scripts/detect.js",
+        "content/Areas/RouteDebugger/Views/RouteDebugger/Index.cshtml.pp",
+        "content/Areas/RouteDebugger/Views/Web.config"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -10264,7 +10299,8 @@
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 1.0.2",
-      "System.ComponentModel.Annotations >= 4.1.0"
+      "System.ComponentModel.Annotations >= 4.1.0",
+      "WebApiRouteDebugger >= 1.0.0"
     ],
     ".NETCoreApp,Version=v1.0": [
       "Microsoft.NETCore.App >= 1.0.0"

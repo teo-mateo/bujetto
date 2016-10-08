@@ -49,7 +49,7 @@ namespace Bujetto.webapi.Controllers
                 category = _db.ExpenseCategories.FirstOrDefault(c => c.id == category.id);
                 if(category == null)
                 {
-                    Response.StatusCode = 400;
+                    Response.StatusCode = 404;
                     return;
                 }
                 else

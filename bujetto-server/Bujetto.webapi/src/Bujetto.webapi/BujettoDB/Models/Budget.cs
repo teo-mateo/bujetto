@@ -17,6 +17,15 @@ namespace Bujetto.webapi.BujettoDB.Models
         public decimal value { get; set; }
         public int userid { get; set; }
         public virtual User user { get; set; }
+        public virtual IList<Expense> expenses { get; set; }
+        [NotMapped]
+        public decimal totalexpenses
+        {
+            get
+            {
+                return expenses.Sum(ex => ex.value);
+            }
+        }
     }
 
     [Table("user")]
@@ -31,8 +40,11 @@ namespace Bujetto.webapi.BujettoDB.Models
     {
         public int id { get; set; }
         public decimal value { get; set; }
-        public virtual Budget budget { get; set; }
+        public int budgetid { get; set; }
+        public int categoryid { get; set; }
         public virtual ExpenseCategory category { get; set; }
+        public DateTime? date { get; set; }
+        public string description { get; set; }
     }
 
     [Table("expense_category")]

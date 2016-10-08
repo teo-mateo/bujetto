@@ -1,9 +1,12 @@
 ﻿using Bujetto.webapi.BujettoDB.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Bujetto.webapi.Controllers
 {
@@ -12,8 +15,32 @@ namespace Bujetto.webapi.Controllers
     {
         public BudgetsController(BujettoDB.BujettoDbContext db) : base(db) { }
 
+        [HttpGet("{id}")]
+        public Budget Get(int id)
+        {
+            if(id == 0)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            else
+            {
+                var budget = _db.Budgets.AsNoTracking()
+                    .Include(b => b.expenses)
+                    .FirstOrDefault(b => b.id == id);
+                if(budget == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                else
+                {
+                    return budget;
+                }
+            }
+        }
 
-        //create user budget
+        //create budget
         [HttpPost]
         public Budget Post(int userid, [FromBody]Budget budget)
         {

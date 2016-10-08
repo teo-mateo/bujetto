@@ -1,0 +1,8 @@
+.DS_Store
+*.orig
+/.idea
+/*.log
+/node_modules
+/dist
+/bower_components
+/*.sublime-workspace

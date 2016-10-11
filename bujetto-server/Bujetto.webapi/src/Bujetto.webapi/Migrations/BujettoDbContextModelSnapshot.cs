@@ -26,6 +26,8 @@ namespace Bujetto.webapi.Migrations
 
                     b.Property<string>("name");
 
+                    b.Property<DateTime?>("startdate");
+
                     b.Property<int>("userid");
 
                     b.Property<decimal>("value");
@@ -35,6 +37,36 @@ namespace Bujetto.webapi.Migrations
                     b.HasIndex("userid");
 
                     b.ToTable("budget");
+                });
+
+            modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.BudgetToCategory", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("budgetid");
+
+                    b.Property<int>("categoryid");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("budgetid");
+
+                    b.HasIndex("categoryid");
+
+                    b.ToTable("budgets_categories_m2m");
+                });
+
+            modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.Category", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("name");
+
+                    b.HasKey("id");
+
+                    b.ToTable("expense_category");
                 });
 
             modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.Expense", b =>
@@ -61,18 +93,6 @@ namespace Bujetto.webapi.Migrations
                     b.ToTable("expense");
                 });
 
-            modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.ExpenseCategory", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("name");
-
-                    b.HasKey("id");
-
-                    b.ToTable("expense_category");
-                });
-
             modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.User", b =>
                 {
                     b.Property<int>("id")
@@ -93,14 +113,27 @@ namespace Bujetto.webapi.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.Expense", b =>
+            modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.BudgetToCategory", b =>
                 {
                     b.HasOne("Bujetto.webapi.BujettoDB.Models.Budget", "budget")
-                        .WithMany("Expenses")
+                        .WithMany()
                         .HasForeignKey("budgetid")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Bujetto.webapi.BujettoDB.Models.ExpenseCategory", "category")
+                    b.HasOne("Bujetto.webapi.BujettoDB.Models.Category", "category")
+                        .WithMany()
+                        .HasForeignKey("categoryid")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.Expense", b =>
+                {
+                    b.HasOne("Bujetto.webapi.BujettoDB.Models.Budget")
+                        .WithMany("expenses")
+                        .HasForeignKey("budgetid")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Bujetto.webapi.BujettoDB.Models.Category", "category")
                         .WithMany()
                         .HasForeignKey("categoryid")
                         .OnDelete(DeleteBehavior.Cascade);

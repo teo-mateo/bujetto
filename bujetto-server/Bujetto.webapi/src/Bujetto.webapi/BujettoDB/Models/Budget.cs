@@ -13,6 +13,7 @@ namespace Bujetto.webapi.BujettoDB.Models
         public int id { get; set; }
         public string name { get; set; }
         public DateTime creationdate { get; set; }
+        public DateTime? startdate { get; set; }
         public DateTime? expirationdate { get; set; }
         public decimal value { get; set; }
         public int userid { get; set; }
@@ -23,8 +24,18 @@ namespace Bujetto.webapi.BujettoDB.Models
         {
             get
             {
-                return expenses.Sum(ex => ex.value);
+                return expenses == null? 0 : expenses.Sum(ex => ex.value);
             }
+        }
+        [NotMapped]
+        public IEnumerable<Category> categories { get; set; }
+
+        public static void LoadCategories(BujettoDbContext db, Budget budget)
+        {
+            budget.categories = (from c in db.Categories
+                                 join bc in db.BudgetsCategories on c.id equals bc.categoryid
+                                 where bc.budgetid == budget.id
+                                 select c).ToArray();
         }
     }
 
@@ -42,15 +53,26 @@ namespace Bujetto.webapi.BujettoDB.Models
         public decimal value { get; set; }
         public int budgetid { get; set; }
         public int categoryid { get; set; }
-        public virtual ExpenseCategory category { get; set; }
+        public virtual Category category { get; set; }
         public DateTime? date { get; set; }
         public string description { get; set; }
     }
 
     [Table("expense_category")]
-    public class ExpenseCategory
+    public class Category
     {
         public int id { get; set; }
         public string name { get; set; }
+    }
+
+    [Table("budgets_categories_m2m")]
+    public class BudgetToCategory
+    {
+        public int id { get; set; }
+        public int budgetid { get; set; }
+        public Budget budget { get; set; }
+
+        public int categoryid { get; set; }
+        public Category category { get; set; }
     }
 }

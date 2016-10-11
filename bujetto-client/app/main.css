@@ -1,5 +1,5 @@
 body {
-    background: cornsilk;
+    background: #E0EFF1;
     font-family:sans-serif;
 }
 
@@ -48,9 +48,39 @@ body {
 }
 
 
-
+.categ-label{
+    cursor:pointer;
+}
 
 
 
 
 /**********************/
+
+.numberCircle {
+    display:inline-block;
+    line-height:0px;
+
+    border-radius:50%;
+    border:3px solid;
+    border-color: transparent;
+    background-color: #cccccc;
+    color: #fdfdfd;
+
+    font-size:36px;
+    font-family: "Courier New";
+}
+
+.numberCircle span {
+    display:inline-block;
+
+    padding-top:50%;
+    padding-bottom:50%;
+
+    margin-left:8px;
+    margin-right:7px;
+}
+
+.budgetCard{
+    background-color: #FFFFFF;
+}

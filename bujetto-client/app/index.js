@@ -7,6 +7,6 @@ import './main.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from './TwoLists/App';
 
 ReactDOM.render(<App />, document.getElementById('app'));

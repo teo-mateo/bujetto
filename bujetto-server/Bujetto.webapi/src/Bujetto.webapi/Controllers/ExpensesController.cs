@@ -55,7 +55,7 @@ namespace Bujetto.webapi.Controllers
             }
 
             if(!_db.Budgets.Any(b=>b.id == expense.budgetid) || 
-                !_db.ExpenseCategories.Any(c=>c.id == expense.categoryid))
+                !_db.Categories.Any(c=>c.id == expense.categoryid))
             {
                 Response.StatusCode = 400;
                 return null;

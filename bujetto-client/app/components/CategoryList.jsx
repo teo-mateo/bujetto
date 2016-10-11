@@ -27,21 +27,24 @@ export default class CategoryList extends React.Component{
     }
 
     render(){
-        const categories = this.state.data;
-
         return (
             <div>
-                <h1>Categories</h1>
-                <div className="list-group">
-                    {categories.map(cat =>{
-                        return <CategoryListItem
-                            key={cat.id}
-                            data={cat}
-                            disableSelected={this.props.disableSelected}
-                            onClick={this.onClick}
-                        />
-                    })}
-                </div>
+                <h4>{this.props.title}</h4>
+                {(this.state.data.length === 0) ? (
+                   <span>Nothing selected</span>
+                ) : (
+                    <div className="list-group">
+                        {this.state.data.map(cat =>{
+                            return <CategoryListItem
+                                key={cat.id}
+                                data={cat}
+                                disableSelected={this.props.disableSelected}
+                                onClick={this.onClick}
+                            />
+                        })}
+                    </div>
+                )}
+
             </div>
         )
     }

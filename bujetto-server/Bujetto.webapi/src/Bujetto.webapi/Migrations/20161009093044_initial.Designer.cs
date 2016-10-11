@@ -8,8 +8,8 @@ using Bujetto.webapi.BujettoDB;
 namespace Bujetto.webapi.Migrations
 {
     [DbContext(typeof(BujettoDbContext))]
-    [Migration("20161008110312_x3")]
-    partial class x3
+    [Migration("20161009093044_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,8 +96,8 @@ namespace Bujetto.webapi.Migrations
 
             modelBuilder.Entity("Bujetto.webapi.BujettoDB.Models.Expense", b =>
                 {
-                    b.HasOne("Bujetto.webapi.BujettoDB.Models.Budget", "budget")
-                        .WithMany("Expenses")
+                    b.HasOne("Bujetto.webapi.BujettoDB.Models.Budget")
+                        .WithMany("expenses")
                         .HasForeignKey("budgetid")
                         .OnDelete(DeleteBehavior.Cascade);
 

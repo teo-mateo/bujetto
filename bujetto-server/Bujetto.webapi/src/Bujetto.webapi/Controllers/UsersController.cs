@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bujetto.webapi.Controllers
 {
@@ -23,7 +24,14 @@ namespace Bujetto.webapi.Controllers
         [HttpGet("{userid}/budgets")]
         public IEnumerable<Budget> GetUserBudgets(int userid)
         {
-            return _db.Budgets.Where(b => b.user.id == userid);
+            var budgets = _db.Budgets.AsNoTracking()
+                .Include(b => b.expenses)
+                .Where(b => b.user.id == userid).ToArray();
+            foreach(var budget in budgets)
+            {
+                Budget.LoadCategories(_db, budget);
+            }
+            return budgets;
         }
 
 

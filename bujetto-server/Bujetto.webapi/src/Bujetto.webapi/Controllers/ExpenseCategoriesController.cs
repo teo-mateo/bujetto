@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bujetto.webapi.Controllers
@@ -14,13 +15,13 @@ namespace Bujetto.webapi.Controllers
 
         //get all categories
         [HttpGet]
-        public IEnumerable<ExpenseCategory> Get()
+        public IEnumerable<Category> Get()
         {
-            return _db.ExpenseCategories;
+            return _db.Categories;
         }
 
         [HttpPost]
-        public ExpenseCategory Post([FromBody]ExpenseCategory category)
+        public Category Post([FromBody]Category category)
         {
             category.id = 0;
             if(String.IsNullOrWhiteSpace(category.name))
@@ -30,14 +31,14 @@ namespace Bujetto.webapi.Controllers
             }
             else
             {
-                _db.ExpenseCategories.Add(category);
+                _db.Categories.Add(category);
                 _db.SaveChanges();
                 return category;
             }
         }
 
         [HttpDelete]
-        public void Delete([FromBody]ExpenseCategory category)
+        public void Delete([FromBody]Category category)
         {
             if(category.id == 0)
             {
@@ -46,7 +47,7 @@ namespace Bujetto.webapi.Controllers
             }
             else
             {
-                category = _db.ExpenseCategories.FirstOrDefault(c => c.id == category.id);
+                category = _db.Categories.FirstOrDefault(c => c.id == category.id);
                 if(category == null)
                 {
                     Response.StatusCode = 404;
@@ -57,7 +58,7 @@ namespace Bujetto.webapi.Controllers
                     var expenses = _db.Expenses.Where(ex => ex.category.id == category.id);
                     _db.Expenses.RemoveRange(expenses.ToArray());
 
-                    _db.ExpenseCategories.Remove(category);
+                    _db.Categories.Remove(category);
                     _db.SaveChanges();
                 }
             }

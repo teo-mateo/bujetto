@@ -19,6 +19,7 @@ namespace Bujetto.webapi.BujettoDB
         public DbSet<Budget> Budgets { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Expense> Expenses { get; set; }
-        public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<BudgetToCategory> BudgetsCategories { get; set; }
     }
 }

@@ -7,7 +7,7 @@
     "build": "webpack",
     "start": "webpack-dev-server"
   },
-  "author": "",
+  "author": "teodor bardici",
   "license": "ISC",
   "devDependencies": {
 

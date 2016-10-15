@@ -4,6 +4,8 @@ import axios from 'axios'
 import BudgetCard from './BudgetCard'
 import _ from 'lodash'
 
+import EventDispatcher from './EventDispatcher'
+
 export default class Budgets extends Component{
     constructor(props){
         super(props)
@@ -16,6 +18,13 @@ export default class Budgets extends Component{
         this.URL = {
             getuserbudgets:`http://localhost:56665/api/users/${this.state.userid}/budgets`
         };
+
+        /*
+        this.Context.EventDispatcher.listen('EDIT_BUDGET', function(args){
+           console.log('heard you want to edit budget ' + args);
+        });
+        */
+
     }
 
     componentWillMount(){
@@ -31,28 +40,41 @@ export default class Budgets extends Component{
     }
 
     render(){
-        const budgets = _.chunk(this.state.budgets, 3);
+        const items = this.state.budgets.map(x=> {
+            return {
+                type:'budget',
+                object:x
+            };
+            }).slice(0);
 
-        budgets.map(chunk =>{
-           console.log(chunk);
-            chunk.map(budget =>{
-                console.log(budget);
-            })
-        });
+        items.push({ type:'add-new', object: '???'});
+
+        const cards = _.chunk(items, 3);
 
         return (
             <div>
             <h2>Where yo' money go and never come back</h2>
                 <Grid>
-                    {budgets.map((chunk, i) =>{
+                    {cards.map((chunk, i) =>{
                         return (
                             <Row key={i}>
-                                {chunk.map(budget =>{
-                                    return (
-                                        <Col md={4} key={budget.id}>
-                                            <BudgetCard budget={budget}/>
-                                        </Col>
-                                    );
+                                {chunk.map(c =>{
+
+                                    if(c.type==='budget') {
+                                        return (
+                                            <Col md={4} key={c.object.id}>
+                                                <BudgetCard budget={c.object}/>
+                                            </Col>
+                                        );
+                                    } else if (c.type==='add-new'){
+                                        return (
+                                            <Col md={4} key={999}>
+                                                <a href="#">Add new budget</a>
+                                            </Col>
+                                        );
+                                    } else {
+                                        return '???';
+                                    }
                                 })}
                             </Row>
                         );

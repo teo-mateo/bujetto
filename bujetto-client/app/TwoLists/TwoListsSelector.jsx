@@ -18,7 +18,6 @@ export default class TwoListsSelector extends Component{
         this.onSaveCLick = this.onSaveCLick.bind(this);
         this.onGoBackClick = this.onGoBackClick.bind(this);
 
-        console.log(this.props);
         this.budgetid = this.props.routeParams.budgetid;
 
         this.URL = {
@@ -27,7 +26,6 @@ export default class TwoListsSelector extends Component{
             savebudgetcategories: `http://localhost:56665/api/budgets/${this.budgetid}/setcategories`
         };
 
-        console.log(this.URL);
     }
 
 
@@ -36,7 +34,6 @@ export default class TwoListsSelector extends Component{
         const URL = this.URL;
 
         const update = function(s){
-            console.log('updating to new state');
             this.setState(s);
         }.bind(this);
 
@@ -44,7 +41,6 @@ export default class TwoListsSelector extends Component{
             axios.get(URL.getallcategories),
             axios.get(URL.getbudget)
         ]).then(axios.spread(function(categories, budget){
-            console.log('axios ok');
             const newState = {
                 categories: categories.data.map(
                     c =>
@@ -61,7 +57,6 @@ export default class TwoListsSelector extends Component{
     }
 
     changeSelectionCallback (id) {
-        console.log('changeSelectionCallback');
         const categories = this.state.categories;
         var category = this.state.categories.find(c => c.id == id);
         category.selected = !category.selected;

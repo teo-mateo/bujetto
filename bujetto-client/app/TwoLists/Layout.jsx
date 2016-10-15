@@ -24,17 +24,10 @@ export default class Layout extends Component{
                             </Navbar.Brand>
                         </Navbar.Header>
                         <Nav>
-                            <NavItem eventKey={1} href="#"><Link to="budgets">Budgets</Link></NavItem>
-                            <NavItem eventKey={2} href="#"><Link to="expenses">Expenses</Link></NavItem>
-                            <NavItem eventKey={4} href="#"><Link to="budgets/2">Categorii B2</Link></NavItem>
-                            <NavItem eventKey={5} href="#"><Link to="budgets/2">Categorii B2</Link></NavItem>
-                            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                                <MenuItem eventKey={3.1}>Action</MenuItem>
-                                <MenuItem eventKey={3.2}>Another action</MenuItem>
-                                <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                                <MenuItem divider />
-                                <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                            </NavDropdown>
+                            <NavItem eventKey={1} href="#/budgets">Budgets</NavItem>
+                            <NavItem eventKey={2} href="#/expenses">Expenses</NavItem>
+                            <NavItem eventKey={4} href="#/budgets/1">Categorii B1</NavItem>
+                            <NavItem eventKey={5} href="#/budgets/2">Categorii B2</NavItem>
                         </Nav>
                     </Navbar>
                 </div>

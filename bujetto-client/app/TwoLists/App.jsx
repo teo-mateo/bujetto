@@ -6,6 +6,8 @@ import Budgets from './Budgets'
 import Expenses from './Expenses'
 import TwoListsSelector from './TwoListsSelector'
 
+import EventDispatcher from './EventDispatcher'
+
 export default class App extends Component{
     constructor(props){
         super(props)

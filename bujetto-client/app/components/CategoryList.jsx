@@ -19,8 +19,6 @@ export default class CategoryList extends React.Component{
 
     refreshList(which, data){
 
-        console.log('refreshing ' + which + ' list state: ' + data.length);
-
         this.setState({
             data: data
         });

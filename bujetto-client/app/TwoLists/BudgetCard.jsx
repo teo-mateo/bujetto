@@ -1,13 +1,31 @@
 import React, {Component} from 'react'
-import {Panel, ProgressBar, Button, Row, Col, Well} from 'react-bootstrap'
-import List from './List'
+import {Panel, ProgressBar, Button, Row, Col, ButtonGroup, Glyphicon} from 'react-bootstrap'
+import { browserHistory, Link } from 'react-router'
 import dateFormat from 'dateformat';
 
+import EventDispatcher from './EventDispatcher'
 
 export default class BudgetCard extends Component{
     constructor(props){
         super(props);
+
+        this.handleEditCategories = this.handleEditCategories.bind(this);
+        this.handleEditBudget = this.handleEditBudget.bind(this);
+        this.handleDuplicateBudget = this.handleDuplicateBudget.bind(this);
     }
+
+    handleEditCategories(evt){
+        browserHistory.push('#/budgets/'+this.props.budget.id);
+    }
+
+    handleEditBudget(evt){
+        this.Context.EventDispatcher.publish("EDIT_BUDGET", this.props.budget.id);
+    }
+
+    handleDuplicateBudget(evt){
+        /*EventDispatcher.publish("DUPLICATE_BUDGET", this.props.budget.id);*/
+    }
+
 
     render(){
 
@@ -16,9 +34,6 @@ export default class BudgetCard extends Component{
             randbackgroundColor: badges[Math.floor(Math.random() * badges.length)],
             backgroundColor: '#7DB4B5'
         };
-
-        console.log('BudgetCard');
-        console.log(this.props.budget);
 
         const model = {
             letter: this.props.budget.name[0].toUpperCase(),
@@ -54,7 +69,12 @@ export default class BudgetCard extends Component{
 
         return (
             <Panel className="budgetCard">
-                <span><span className="numberCircle" style={badgeStyle}><span><strong>{model.letter}</strong></span></span><span style={{fontSize: 24 + "px"}}>{model.name}</span></span>
+                <span>
+                    <span className="numberCircle" style={badgeStyle}>
+                        <span><strong>{model.letter}</strong></span>
+                    </span>
+                    <span style={{fontSize: 24 + "px"}}>{model.name}</span>
+                </span>
                 <h4>{model.label}</h4>
 
                 <Row>
@@ -64,10 +84,12 @@ export default class BudgetCard extends Component{
                     <Col md={6}><div>Spent {model.totalexpenses} € of {model.value} € </div></Col>
                 </Row>
 
-                <p>
 
-                    <Button bsStyle="default">Spend</Button>
-                </p>
+                <Link to={'budgets/'+this.props.budget.id}>Categories</Link>
+                &nbsp;
+                <a href="#" onClick={this.handleEditBudget}>Edit</a>
+                &nbsp;
+                <a href="#" onClick={this.handleDuplicateBudget}>Duplicate</a>
             </Panel>
         );
     }

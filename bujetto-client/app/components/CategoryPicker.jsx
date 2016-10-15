@@ -11,7 +11,6 @@ export default class CategoryPicker extends React.Component{
             selected: []
         };
 
-        console.log('CategoryPicker .ctor: all: ' + this.state.all.length);
 
         this.select = this.select.bind(this);
         this.deselect = this.deselect.bind(this);
@@ -41,14 +40,12 @@ export default class CategoryPicker extends React.Component{
     select(id){
         const category = this.state.all.find(c=>c.id === id);
         category.selected = true;
-        console.log(category.id + " selected");
         this.refreshState();
     }
 
     deselect(id){
         const category = this.state.all.find(c=>c.id === id);
         category.selected = false;
-        console.log(category.id + " deselected");
         this.refreshState();
     }
 

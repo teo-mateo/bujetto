@@ -3,6 +3,7 @@ import {Grid, Row, Col, Panel, Button} from 'react-bootstrap'
 import axios from 'axios'
 import BudgetCard from './BudgetCard'
 import _ from 'lodash'
+import Config from 'Config'
 
 import EventDispatcher from './EventDispatcher'
 
@@ -15,16 +16,11 @@ export default class Budgets extends Component{
             budgets: []
         };
 
+
+
         this.URL = {
-            getuserbudgets:`http://localhost:56665/api/users/${this.state.userid}/budgets`
+            getuserbudgets:`${Config.serverUrl}/api/users/${this.state.userid}/budgets`
         };
-
-        /*
-        this.Context.EventDispatcher.listen('EDIT_BUDGET', function(args){
-           console.log('heard you want to edit budget ' + args);
-        });
-        */
-
     }
 
     componentWillMount(){

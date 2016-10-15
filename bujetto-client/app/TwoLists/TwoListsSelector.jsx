@@ -3,6 +3,7 @@ import List from './List'
 import axios from 'axios'
 import CategoryDTO from './Models/CategoryDTO'
 import { Router, RouterContext, Link, browserHistory } from 'react-router';
+import Config from 'Config'
 
 export default class TwoListsSelector extends Component{
     constructor(props){
@@ -21,9 +22,9 @@ export default class TwoListsSelector extends Component{
         this.budgetid = this.props.routeParams.budgetid;
 
         this.URL = {
-            getbudget: `http://localhost:56665/api/budgets/${this.budgetid}`,
-            getallcategories: 'http://localhost:56665/api/expensecategories',
-            savebudgetcategories: `http://localhost:56665/api/budgets/${this.budgetid}/setcategories`
+            getbudget: `${Config.serverUrl}/api/budgets/${this.budgetid}`,
+            getallcategories: `${Config.serverUrl}/api/expensecategories`,
+            savebudgetcategories: `${Config.serverUrl}/api/budgets/${this.budgetid}/setcategories`
         };
 
     }

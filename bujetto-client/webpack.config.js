@@ -15,6 +15,13 @@ const PATHS = {
 process.env.BABEL_ENV = TARGET;
 
 const common = {
+    externals: {
+        'Config': JSON.stringify(process.env.BUJETTO_ENV === 'production' ? {
+            serverUrl: "http://bardici.ro:82"
+        } : {
+            serverUrl: "http://localhost:56665"
+        })
+    },
     entry: {
         app: PATHS.app
     },

@@ -14,7 +14,7 @@ const PATHS = {
 
 process.env.BABEL_ENV = TARGET;
 
-//process.env.BUJETTO_ENV = 'dev';
+process.env.BUJETTO_ENV = 'dev';
 
 const common = {
     externals: {

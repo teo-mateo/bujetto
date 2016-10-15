@@ -25,6 +25,7 @@
     "node-uuid": "^1.4.7",
     "npm-install-webpack-plugin": "^4.0.4",
     "react": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",

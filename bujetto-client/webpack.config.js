@@ -14,12 +14,14 @@ const PATHS = {
 
 process.env.BABEL_ENV = TARGET;
 
+//process.env.BUJETTO_ENV = 'dev';
+
 const common = {
     externals: {
         'Config': JSON.stringify(process.env.BUJETTO_ENV === 'production' ? {
-            serverUrl: "http://bardici.ro:82"
+            serverUrl: "http://bardici.ro:81"
         } : {
-            serverUrl: "http://localhost:56665"
+            serverUrl: "http://localhost:3000"
         })
     },
     entry: {

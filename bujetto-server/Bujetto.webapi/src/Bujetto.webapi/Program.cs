@@ -16,8 +16,8 @@ namespace Bujetto.webapi
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
+                //.UseUrls("http://0.0.0.0:3000")
                 .UseStartup<Startup>()
-                .UseUrls("http://0.0.0.0:5555")
                 .Build();
 
             host.Run();

@@ -5,3 +5,5 @@
 /dist
 /bower_components
 /*.sublime-workspace
+/bin
+/obj

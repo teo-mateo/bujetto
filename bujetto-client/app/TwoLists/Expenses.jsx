@@ -7,7 +7,7 @@ export default class Expenses extends Component{
 
     render(){
         return (
-            <h2>Expenses</h2>
+            <h2>Expensesss</h2>
         )
     }
 }

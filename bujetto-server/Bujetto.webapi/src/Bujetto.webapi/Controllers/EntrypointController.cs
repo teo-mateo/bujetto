@@ -12,7 +12,7 @@ namespace Bujetto.webapi.Controllers
         [HttpGet]
         public string Index()
         {
-            return "Bujetto API Running! and updated";
+            return "Bujetto API Running! and updated again";
         } 
     }
 }
